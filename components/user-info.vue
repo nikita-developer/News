@@ -75,6 +75,17 @@ onBeforeMount(getInfo)
 
 		span {
 			display: block;
+
+			@media (max-width: 480px) {
+				display: inline;
+			}
+		}
+
+		@media (max-width: 480px) {
+			column-gap: 0;
+			align-items: flex-start;
+			row-gap: 20px;
+			flex-direction: column;
 		}
 
 		@media (max-width: 576px) {
@@ -112,6 +123,11 @@ onBeforeMount(getInfo)
 		object-fit: cover;
 	}
 
+	&__content {
+		display: flex;
+		flex-direction: column;
+	}
+
 	&__body {
 		position: relative;
 		width: 100%;
@@ -120,8 +136,9 @@ onBeforeMount(getInfo)
 		background-color: #fff;
 		padding: 30px;
 		border-radius: 16px;
-		max-height: 100%;
+		max-height: 605px;
 		overflow: hidden;
+		display: flex;
 	}
 
 	&__preload {
@@ -150,7 +167,6 @@ onBeforeMount(getInfo)
 		flex-direction: column;
 		row-gap: 20px;
 		overflow: auto;
-		max-height: 300px;
 		padding-right: 15px;
 
 		p {

@@ -23,7 +23,7 @@ const getPersons = async () => {
 		const res = await fetch('https://cdnapi.smotrim.ru/api/v1/boxes/vesti2')
 		const json = await res.json()
 		persons.value = json?.data?.content?.find(el => el.title === 'Персоны').content
-		await new Promise(resolve => setTimeout(() => is_loading.value = false, 1000))
+		is_loading.value = false
 	} catch (e) {
 		console.log(e)
 	} finally {
@@ -49,6 +49,7 @@ onBeforeMount(getPersons)
 					<carousel
 							:itemsToShow="count_slide"
 							:wrapAround="true"
+							snapAlign="left"
 					>
 						<slide v-for="person in persons" :key="person.id">
 							<slider-item
@@ -76,6 +77,7 @@ onBeforeMount(getPersons)
 
 <style lang="scss">
 .page {
+	display: flex;
 	height: 100vh;
 	width: 100vw;
 
@@ -87,6 +89,10 @@ onBeforeMount(getPersons)
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	&__body {
+		width: 100%;
 	}
 }
 
@@ -101,9 +107,10 @@ onBeforeMount(getPersons)
 		border-radius: 50%;
 		background-image: url('@/assets/media/next.svg');
 		background-position: center;
-		transform: rotate(180deg);
+		transform: rotate(180deg) translateY(50%);
 		background-color: #fff;
 		background-repeat: no-repeat;
+		top: 72px;
 
 		svg {
 			display: none;
@@ -118,6 +125,7 @@ onBeforeMount(getPersons)
 		background-position: center;
 		background-color: #fff;
 		background-repeat: no-repeat;
+		top: 72px;
 
 		svg {
 			display: none;
@@ -126,8 +134,11 @@ onBeforeMount(getPersons)
 }
 
 .container {
+	display: flex;
+	align-items: center;
+	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 1513px;
+	max-width: 1406px;
 }
 </style>

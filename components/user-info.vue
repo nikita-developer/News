@@ -14,7 +14,7 @@ const getInfo = async () => {
 	try {
 		const res = await fetch(`https://cdnapi.smotrim.ru/api/v1/persons/${props.person?.id}`)
 		info.value = await res.json()
-		await new Promise(resolve => setTimeout(() => is_loading.value = false, 1000))
+		is_loading.value = false
 	} catch (e) {
 		console.log(e)
 	} finally {

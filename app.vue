@@ -111,6 +111,8 @@ onBeforeMount(getPersons)
 		background-color: #fff;
 		background-repeat: no-repeat;
 		top: 72px;
+		left: -5px;
+		margin: 0;
 
 		svg {
 			display: none;
@@ -126,6 +128,8 @@ onBeforeMount(getPersons)
 		background-color: #fff;
 		background-repeat: no-repeat;
 		top: 72px;
+		right: -5px;
+		margin: 0;
 
 		svg {
 			display: none;

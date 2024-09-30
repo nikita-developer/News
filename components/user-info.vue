@@ -126,6 +126,7 @@ onBeforeMount(getInfo)
 	&__content {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 	}
 
 	&__body {
